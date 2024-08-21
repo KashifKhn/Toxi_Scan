@@ -11,7 +11,7 @@ const NavLink = (props: Omit<ComponentProps<typeof Link>, "className">) => {
       {...props}
       className={cn(
         "p-4 transition-all ease-in-out duration-400 hover:bg-secondary hover:text-secondary-foreground focus-visible:bg-secondary focus-visible:text-secondary-foreground",
-        pathName === props.href && "bg-background text-foreground"
+        pathName === props.href && "underline underline-offset-8"
       )}></Link>
   );
 };
