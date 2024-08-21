@@ -19,6 +19,10 @@ ToxiScan is a full-stack web application designed to analyze, manage, and improv
 
 ## Demo
 
+ToxiScan provides an interactive platform to analyze and manage online comments and text. You can try out the live demo to see how ToxiScan detects and filters toxic, spammy, and harmful content. The demo also showcases how users can fetch YouTube comments, analyze them, and reply directly from the application.
+
+[Try the Live Demo](https://toxi-scan.vercel.app/)
+
 ## Features
 
 - **Toxicity and Spam Detection**: Analyze comments and text for harmful content using the Perspective API.
