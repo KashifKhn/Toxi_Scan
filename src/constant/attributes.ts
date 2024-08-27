@@ -3,6 +3,15 @@ export type Attribute = {
   description: string;
 };
 
+export const attributeNames = [
+  "TOXICITY",
+  "SEVERE_TOXICITY",
+  "IDENTITY_ATTACK",
+  "INSULT",
+  "PROFANITY",
+  "THREAT",
+] as const;
+
 export const attributes: Attribute[] = [
   {
     attrName: "TOXICITY",
