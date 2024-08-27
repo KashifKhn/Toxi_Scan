@@ -31,9 +31,12 @@ export const analyze = async (_prevState: unknown, formData: FormData) => {
   const { attr, text, threshold } = result.data;
 
   const requestedAttributes = attr.reduce((acc, attr) => {
-    acc[attr] = {};
+    acc[attr] = { scoreThreshold: threshold / 100 };
     return acc;
   }, {});
+
+  console.log("text", text);
+  console.log("requestedAttributes", requestedAttributes);
 
   try {
     const response = await axios.post(`${PERSPECTIVE_API_URL}?key=${API_KEY}`, {
@@ -41,7 +44,7 @@ export const analyze = async (_prevState: unknown, formData: FormData) => {
       languages: ["en"],
       requestedAttributes: requestedAttributes,
     });
-    console.log("hello", response.data);
+    console.log("response ", response.data);
   } catch (error) {
     console.error("error" + error);
   }
