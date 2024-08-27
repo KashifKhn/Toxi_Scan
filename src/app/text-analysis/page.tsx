@@ -35,7 +35,11 @@ const TextAnalysisPage = () => {
               key={attribute.attrName}
               className="flex items-start space-x-2"
             >
-              <Checkbox id={attribute.attrName} name="attr" value={attribute.attrName} />
+              <Checkbox
+                id={attribute.attrName}
+                name="attr"
+                value={attribute.attrName}
+              />
               <div>
                 <Label htmlFor={attribute.attrName}>{attribute.attrName}</Label>
                 <p className="text-sm text-gray-500">{attribute.description}</p>
