@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useFormState } from "react-dom";
+import SubmitButton from "@/components/SubmitButton";
 
 const TextAnalysisPage = () => {
   const [error, actions] = useFormState(analyze, {});
@@ -62,9 +63,7 @@ const TextAnalysisPage = () => {
           <div className="text-destructive">{error.threshold}</div>
         )}
       </div>
-      <Button type="submit" className="w-full">
-        Analyze Text
-      </Button>
+      <SubmitButton />
     </form>
   );
 };
