@@ -1,6 +1,8 @@
 "use server";
 import { attributeNames } from "@/constant/attributes";
+import { saveToRedis } from "@/lib/redis";
 import axios from "axios";
+import { redirect } from "next/navigation";
 import { z } from "zod";
 
 type ValidAttribute = (typeof attributeNames)[number];
@@ -37,6 +39,8 @@ export const analyze = async (_prevState: unknown, formData: FormData) => {
 
   const { attr, text, threshold } = result.data;
 
+  const analysisKey = `analysis:${new Date().getTime()}`;
+
   const requestedAttributes: RequestedAttributes =
     attr.reduce<RequestedAttributes>(
       (acc: RequestedAttributes, attribute: ValidAttribute) => {
@@ -52,8 +56,10 @@ export const analyze = async (_prevState: unknown, formData: FormData) => {
       languages: ["en"],
       requestedAttributes: requestedAttributes,
     });
-    console.log("response ", response.data);
+    await saveToRedis(analysisKey, response.data);
   } catch (error) {
     console.error("error" + error);
+  } finally {
+    redirect(`/results?key=${analysisKey}`);
   }
 };
