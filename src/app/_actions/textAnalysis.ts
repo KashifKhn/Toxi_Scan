@@ -9,7 +9,7 @@ type ValidAttribute = (typeof attributeNames)[number];
 
 type RequestedAttributes = Record<ValidAttribute, { scoreThreshold: number }>;
 
-const API_KEY = process.env.PERSPECTIVE_API_KEY as string;
+const API_KEY = process.env.GOOGLE_API_KEY as string;
 const PERSPECTIVE_API_URL =
   "https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze";
 
